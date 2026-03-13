@@ -19,27 +19,21 @@
 
 ## 1. Deploying to Netlify
 
-Netlify will host your site for free and automatically redeploy every time you push a change to GitHub.
+Your site has been deployed to Netlify by Pixel Perfect Designs and is ready to be transferred to you.
 
 **Step 1 — Create a Netlify account**
-- Go to [netlify.com](https://netlify.com) and sign up using your GitHub account
+- Go to [netlify.com](https://netlify.com) and sign up (free)
+- Use your email address or sign up with Google
 
-**Step 2 — Import the project**
-- From your Netlify dashboard click **"Add new site" → "Import an existing project"**
-- Choose **GitHub** and authorize Netlify to access your repositories
-- Select **PixelPerfectDesigns / joe-willys-website**
+**Step 2 — Accept the transfer**
+- Once your account is created, notify Pixel Perfect Designs
+- They will initiate a site transfer from their Netlify account to yours
+- You'll receive an email from Netlify — click **"Accept transfer"**
+- The site and all deploy history will move to your account
 
-**Step 3 — Configure build settings**
-- **Branch to deploy:** `main`
-- **Build command:** *(leave blank)*
-- **Publish directory:** `.` *(a single dot — the root of the repo)*
-- Click **"Deploy site"**
+**That's it.** Your site will continue to work exactly as before, now under your ownership.
 
-**Step 4 — Wait for deployment**
-- Netlify will assign a temporary URL like `random-name-123.netlify.app`
-- Your site is live at that URL within 1–2 minutes
-
-> **After deploying:** Open `index.html` and find the two `og:image` meta tags near the top. Update the relative path `brand_assets/social_preview.jpg` to your full domain URL, e.g. `https://joewillysseafoodhouse.com/brand_assets/social_preview.jpg`. Commit and push the change.
+> **After the transfer:** Open `index.html` and find the two `og:image` meta tags near the top. Update the relative path `brand_assets/social_preview.jpg` to your full domain URL, e.g. `https://joewillysseafoodhouse.com/brand_assets/social_preview.jpg`. Send the updated file to Pixel Perfect Designs to push the change, or push it yourself if you have GitHub access.
 
 ---
 
