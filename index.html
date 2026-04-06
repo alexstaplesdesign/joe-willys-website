@@ -21,7 +21,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Josefin+Sans:wght@300;400;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@700;800;900&family=Nunito:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
   <script>
     tailwind.config = {
@@ -36,9 +36,9 @@
             'cream-lt': '#fdf8ef',
           },
           fontFamily: {
-            display: ['"Playfair Display"', 'Georgia', 'serif'],
-            label:   ['"Josefin Sans"', 'sans-serif'],
-            body:    ['"Lora"', 'Georgia', 'serif'],
+            display: ['"Fraunces"', 'Impact', 'serif'],
+            label:   ['"Nunito"', 'sans-serif'],
+            body:    ['"Nunito"', 'sans-serif'],
           },
         }
       }
@@ -49,7 +49,7 @@
     /* ── Reset & Base ── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { font-size: 16px; }
-    body { font-family: 'Lora', Georgia, serif; background: #fdf8ef; color: #1a2c40; overflow-x: hidden; }
+    body { font-family: 'Nunito', sans-serif; background: #fdf8ef; color: #1a2c40; overflow-x: hidden; }
 
     :root {
       --navy:      #1e3d6e;
@@ -63,16 +63,25 @@
     /* ── Nav ── */
     #main-nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      transition: background 0.4s ease, box-shadow 0.4s ease;
+      pointer-events: none;
     }
-    #main-nav.scrolled {
-      background: rgba(13, 31, 56, 0.97);
+    #main-nav > div {
+      pointer-events: all;
+      margin: 8px auto;
+      border-radius: 999px;
+      transition: background 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+      border: 1px solid transparent;
+    }
+    #main-nav.scrolled > div {
+      background: rgba(13, 31, 56, 0.6);
       backdrop-filter: blur(16px);
-      box-shadow: 0 2px 32px rgba(0,0,0,0.45);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 4px 32px rgba(0,0,0,0.35);
+      border-color: rgba(245,227,188,0.08);
     }
     .nav-link {
-      font-family: 'Josefin Sans', sans-serif;
-      font-weight: 600; font-size: 0.7rem;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 600; font-size: 1rem;
       letter-spacing: 0.14em; text-transform: uppercase;
       color: rgba(253,248,239,0.8);
       position: relative; padding-bottom: 3px;
@@ -115,8 +124,8 @@
 
     /* ── Buttons ── */
     .btn-rust {
-      font-family: 'Josefin Sans', sans-serif;
-      font-weight: 700; font-size: 0.72rem; letter-spacing: 0.13em;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700; font-size: 1rem; letter-spacing: 0.1em;
       text-transform: uppercase; text-decoration: none;
       background: var(--rust); color: #fff;
       padding: 14px 34px; border-radius: 2px; border: none; cursor: pointer;
@@ -127,8 +136,8 @@
     .btn-rust:hover { background: #a83920; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(196,74,43,0.5); }
     .btn-rust:active { transform: translateY(0); }
     .btn-outline {
-      font-family: 'Josefin Sans', sans-serif;
-      font-weight: 700; font-size: 0.72rem; letter-spacing: 0.13em;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700; font-size: 1rem; letter-spacing: 0.1em;
       text-transform: uppercase; text-decoration: none;
       background: transparent; color: rgba(253,248,239,0.9);
       border: 2px solid rgba(253,248,239,0.55);
@@ -139,8 +148,8 @@
     .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.1); transform: translateY(-2px); }
     .btn-outline:active { transform: translateY(0); }
     .btn-navy {
-      font-family: 'Josefin Sans', sans-serif;
-      font-weight: 700; font-size: 0.72rem; letter-spacing: 0.13em;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700; font-size: 1rem; letter-spacing: 0.1em;
       text-transform: uppercase; text-decoration: none;
       background: var(--navy-deep); color: #fdf8ef;
       padding: 14px 34px; border-radius: 0 2px 2px 0; border: none; cursor: pointer;
@@ -151,8 +160,8 @@
 
     /* ── Section Eyebrow ── */
     .eyebrow {
-      font-family: 'Josefin Sans', sans-serif;
-      font-size: 0.65rem; font-weight: 700;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.875rem; font-weight: 700;
       letter-spacing: 0.22em; text-transform: uppercase;
       color: var(--rust);
       display: flex; align-items: center; justify-content: center; gap: 12px;
@@ -162,8 +171,8 @@
       background: rgba(196,74,43,0.5);
     }
     .section-title {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-weight: 700; letter-spacing: -0.02em; line-height: 1.12;
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 400; letter-spacing: -0.02em; line-height: 1.05;
     }
 
     /* ── Info Bar ── */
@@ -181,12 +190,22 @@
       background: rgba(255,255,255,0.04);
       border: 1px solid rgba(90,180,212,0.14);
       border-radius: 3px; overflow: hidden;
-      transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s ease;
+      transform-style: preserve-3d;
+      transition: transform 0.6s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s ease;
+      will-change: transform;
+      position: relative;
     }
     .menu-card:hover {
-      transform: translateY(-7px);
-      box-shadow: 0 24px 48px rgba(0,0,0,0.45), 0 0 0 1px rgba(90,180,212,0.28);
+      box-shadow: 0 28px 56px rgba(0,0,0,0.55), 0 0 0 1px rgba(90,180,212,0.28);
     }
+    .menu-card-glare {
+      position: absolute; inset: 0; z-index: 10;
+      pointer-events: none; border-radius: 3px;
+      background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.18) 0%, transparent 65%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .menu-card:hover .menu-card-glare { opacity: 1; }
     .menu-card-img { position: relative; aspect-ratio: 4/3; overflow: hidden; }
     .menu-card-img img {
       width: 100%; height: 100%; object-fit: cover;
@@ -199,8 +218,8 @@
       background: linear-gradient(to top, rgba(13,31,56,0.5) 0%, transparent 55%);
     }
     .menu-badge {
-      font-family: 'Josefin Sans', sans-serif;
-      font-size: 0.58rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.875rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
       color: var(--sky);
       background: rgba(90,180,212,0.1);
       border: 1px solid rgba(90,180,212,0.28);
@@ -244,7 +263,7 @@
         radial-gradient(ellipse at 85% 40%, rgba(150,40,20,0.55) 0%, transparent 55%);
     }
     .email-input {
-      font-family: 'Lora', serif; font-size: 0.95rem;
+      font-family: 'Nunito', sans-serif; font-size: 1rem;
       background: rgba(255,255,255,0.13);
       border: 1px solid rgba(255,255,255,0.32);
       color: #fff; padding: 14px 20px;
@@ -291,24 +310,177 @@
       .btn-navy { border-radius: 2px !important; padding: 14px !important; }
     }
 
+    .hero-eyebrow-break { display: none; }
+
     /* ── Scroll pulse ── */
     @keyframes scrollPulse {
       0%,100% { opacity: 0.2; transform: scaleY(0.5); transform-origin: top; }
       50%      { opacity: 0.7; transform: scaleY(1); }
     }
 
-    /* ── Mobile menu ── */
-    #mobile-menu {
-      display: none; flex-direction: column; gap: 14px;
-      position: absolute; top: 100%; left: 0; right: 0;
-      background: rgba(13,31,56,0.97); padding: 28px 24px;
-      backdrop-filter: blur(16px);
+    /* ── Fullscreen menu overlay ── */
+    @keyframes wave1 {
+      0%   { transform: translate(0%, 0%) scale(1); }
+      33%  { transform: translate(18%, -14%) scale(1.18); }
+      66%  { transform: translate(-12%, 16%) scale(0.88); }
+      100% { transform: translate(0%, 0%) scale(1); }
     }
-    #mobile-menu.open { display: flex; }
+    @keyframes wave2 {
+      0%   { transform: translate(0%, 0%) scale(1); }
+      33%  { transform: translate(-20%, 12%) scale(1.12); }
+      66%  { transform: translate(14%, -18%) scale(1.2); }
+      100% { transform: translate(0%, 0%) scale(1); }
+    }
+    @keyframes wave3 {
+      0%   { transform: translate(0%, 0%) scale(1.1); }
+      50%  { transform: translate(15%, 18%) scale(0.85); }
+      100% { transform: translate(0%, 0%) scale(1.1); }
+    }
+    @media (min-width: 768px) {
+      #fish-btn { display: none !important; }
+      #fullscreen-menu { display: none !important; }
+    }
+    #fullscreen-menu {
+      position: fixed; inset: 0; z-index: 98;
+      background: rgba(8, 20, 40, 0.65);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      display: flex; align-items: center; justify-content: center;
+      transform: translateY(100%);
+      transition: transform 1.1s cubic-bezier(0.16,1,0.3,1);
+      pointer-events: none;
+      overflow: hidden;
+    }
+    #fullscreen-menu::before,
+    #fullscreen-menu::after,
+    #fullscreen-menu .fm-wave3 {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    #fullscreen-menu::before {
+      width: 120vw; height: 120vw;
+      top: -30vw; left: -20vw;
+      background: radial-gradient(circle, rgba(90,180,212,0.35) 0%, transparent 65%);
+      animation: wave1 6s ease-in-out infinite;
+    }
+    #fullscreen-menu::after {
+      width: 100vw; height: 100vw;
+      bottom: -20vw; right: -15vw;
+      background: radial-gradient(circle, rgba(196,74,43,0.28) 0%, transparent 60%);
+      animation: wave2 8s ease-in-out infinite;
+    }
+    #fullscreen-menu.is-open {
+      transform: translateY(0);
+      pointer-events: all;
+    }
+    @keyframes wave4 {
+      0%   { transform: translate(0%, 0%) scale(1); }
+      40%  { transform: translate(16%, -20%) scale(1.15); }
+      80%  { transform: translate(-8%, 12%) scale(0.9); }
+      100% { transform: translate(0%, 0%) scale(1); }
+    }
+    @keyframes wave5 {
+      0%   { transform: translate(0%, 0%) scale(0.95); }
+      50%  { transform: translate(-18%, -12%) scale(1.2); }
+      100% { transform: translate(0%, 0%) scale(0.95); }
+    }
+    .fm-wave3 {
+      position: absolute;
+      width: 80vw; height: 80vw;
+      top: 20%; left: 15%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(90,180,212,0.2) 0%, transparent 65%);
+      animation: wave3 5s ease-in-out infinite;
+      pointer-events: none;
+    }
+    .fm-wave4 {
+      position: absolute;
+      width: 60vw; height: 60vw;
+      bottom: 10%; left: 5%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(245,227,188,0.15) 0%, transparent 65%);
+      animation: wave4 7s ease-in-out infinite;
+      pointer-events: none;
+    }
+    .fm-wave5 {
+      position: absolute;
+      width: 70vw; height: 70vw;
+      top: 5%; right: 0%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(196,74,43,0.18) 0%, transparent 60%);
+      animation: wave5 9s ease-in-out infinite;
+      pointer-events: none;
+    }
+    .fm-inner { position: relative; z-index: 2; }
+    .fm-inner {
+      display: flex; flex-direction: column;
+      align-items: center; gap: 32px;
+      text-align: center;
+    }
+    .fm-phone {
+      display: flex; align-items: center; gap: 10px;
+      font-family: 'Nunito', sans-serif; font-size: 1rem;
+      font-weight: 600; letter-spacing: 0.1em;
+      color: rgba(245,227,188,0.5); text-decoration: none;
+      transform: translateY(20px); opacity: 0;
+      transition: transform 0.4s ease, opacity 0.4s ease, color 0.2s;
+    }
+    .fm-phone:hover { color: var(--cream); }
+    #fullscreen-menu.is-open .fm-phone {
+      transform: translateY(0); opacity: 1;
+      transition-delay: 0.1s;
+    }
+    .fm-links { display: flex; flex-direction: column; gap: 8px; }
+    .fm-link {
+      display: block;
+      font-family: 'Fraunces', serif; font-size: clamp(2.4rem, 8vw, 3.5rem);
+      font-weight: 400; color: #fdf8ef; text-decoration: none;
+      line-height: 1.1;
+      transform: translateY(30px); opacity: 0;
+      transition: transform 0.45s cubic-bezier(0.16,1,0.3,1), opacity 0.4s ease, color 0.2s;
+    }
+    .fm-link:hover { color: var(--rust); }
+    #fullscreen-menu.is-open .fm-link:nth-child(1) { transform: translateY(0); opacity: 1; transition-delay: 0.18s; }
+    #fullscreen-menu.is-open .fm-link:nth-child(2) { transform: translateY(0); opacity: 1; transition-delay: 0.24s; }
+    #fullscreen-menu.is-open .fm-link:nth-child(3) { transform: translateY(0); opacity: 1; transition-delay: 0.30s; }
+    #fullscreen-menu.is-open .fm-link:nth-child(4) { transform: translateY(0); opacity: 1; transition-delay: 0.36s; }
+    .fm-cta {
+      transform: translateY(20px); opacity: 0;
+      transition: transform 0.4s ease, opacity 0.4s ease;
+    }
+    #fullscreen-menu.is-open .fm-cta { transform: translateY(0); opacity: 1; transition-delay: 0.44s; }
+
+    /* ── Fish skeleton dissection ── */
+    #fish-rib-1, #fish-rib-2, #fish-rib-3, #fish-rib-4,
+    #fish-rib-5, #fish-rib-6, #fish-rib-7,
+    #fish-spine, #fish-tail {
+      transition: transform 0.6s cubic-bezier(0.22,1,0.36,1), opacity 0.5s ease;
+    }
+    #fish-rib-1 { transform-origin: 16px 14px; }
+    #fish-rib-2 { transform-origin: 25px 14px; }
+    #fish-rib-3 { transform-origin: 35px 14px; }
+    #fish-rib-4 { transform-origin: 44px 14px; }
+    #fish-rib-5 { transform-origin: 53px 14px; }
+    #fish-rib-6 { transform-origin: 63px 14px; }
+    #fish-rib-7 { transform-origin: 72px 14px; }
+    #fish-spine  { transform-origin: 44px 14px; }
+    #fish-tail   { transform-origin: 84px 14px; }
+
+    .menu-open #fish-rib-1 { transform: translate(-22px,  24px) rotate( 80deg);  opacity: 0; transition-delay: 0s; }
+    .menu-open #fish-rib-2 { transform: translate(-16px, -28px) rotate(-110deg); opacity: 0; transition-delay: 0.04s; }
+    .menu-open #fish-rib-3 { transform: translate( 20px,  30px) rotate( 95deg);  opacity: 0; transition-delay: 0.02s; }
+    .menu-open #fish-rib-4 { transform: translate(  2px, -36px) rotate(-60deg);  opacity: 0; transition-delay: 0.06s; }
+    .menu-open #fish-rib-5 { transform: translate(-24px,  12px) rotate( 130deg); opacity: 0; transition-delay: 0.03s; }
+    .menu-open #fish-rib-6 { transform: translate( 26px, -22px) rotate(-85deg);  opacity: 0; transition-delay: 0.05s; }
+    .menu-open #fish-rib-7 { transform: translate( 18px,  32px) rotate( 115deg); opacity: 0; transition-delay: 0.01s; }
+    .menu-open #fish-spine  { transform: scaleX(1.1) translateY(20px); opacity: 0; }
+    .menu-open #fish-tail   { transform: translate(22px, -16px) rotate(-50deg);  opacity: 0; }
 
     /* ── Footer links ── */
     .footer-link {
-      font-family: 'Josefin Sans', sans-serif; font-size: 0.68rem;
+      font-family: 'Nunito', sans-serif; font-size: 0.875rem;
       font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
       color: rgba(245,227,188,0.5); text-decoration: none;
       transition: color 0.2s;
@@ -323,15 +495,11 @@
        NAV
   ══════════════════════════════════════ -->
   <nav id="main-nav">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <div class="max-w-7xl mx-auto px-10 py-1 flex items-center justify-between">
 
       <!-- Logo -->
-      <a href="#hero" class="flex items-center gap-3 no-underline">
-        <img src="brand_assets/joe_willys_square_logo.png" alt="Joe Willy's" style="height:40px;width:40px;object-fit:contain;">
-        <div style="line-height:1;">
-          <div style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:#fdf8ef;">Joe Willy's</div>
-          <div style="font-family:'Josefin Sans',sans-serif;font-size:0.52rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(245,227,188,0.6);">Seafood House</div>
-        </div>
+      <a href="#hero" class="flex items-center no-underline">
+        <img src="brand_assets/joe_willys_square_logo.png" alt="Joe Willy's" style="height:72px;width:72px;object-fit:contain;">
       </a>
 
       <!-- Desktop links -->
@@ -340,28 +508,82 @@
         <a href="#menu"    class="nav-link">Menu</a>
         <a href="#reviews" class="nav-link">Reviews</a>
         <a href="#contact" class="nav-link">Find Us</a>
-        <a href="#catchclub" class="btn-rust" style="padding:10px 22px;font-size:0.68rem;">Free Dessert</a>
+        <a href="#catchclub" class="btn-rust" style="padding:10px 22px;font-size:1rem;">Free Dessert</a>
       </div>
 
-      <!-- Hamburger -->
-      <button id="hamburger" class="md:hidden text-cream-lt p-2" aria-label="Open menu" style="color:#fdf8ef;background:none;border:none;cursor:pointer;">
-        <svg id="ham-icon" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-          <line x1="2" y1="5"  x2="20" y2="5"/>
-          <line x1="2" y1="11" x2="20" y2="11"/>
-          <line x1="2" y1="17" x2="20" y2="17"/>
+      <!-- Fish skeleton menu button -->
+      <button id="fish-btn" class="md:hidden" aria-label="Open menu" style="background:none;border:none;cursor:pointer;padding:4px;display:flex;align-items:center;">
+        <svg id="fish-svg" viewBox="0 0 88 28" width="88" height="28" fill="none" xmlns="http://www.w3.org/2000/svg" style="overflow:visible;">
+          <defs>
+            <filter id="fish-glow" x="-30%" y="-30%" width="160%" height="160%">
+              <feGaussianBlur stdDeviation="1.2" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+          <path id="fish-spine" d="M6,14 L82,14" stroke="#f5e3bc" stroke-width="2" stroke-linecap="round" filter="url(#fish-glow)"/>
+          <g id="fish-tail">
+            <path d="M80,14 Q85,8 88,4" stroke="#f5e3bc" stroke-width="1.8" stroke-linecap="round" filter="url(#fish-glow)"/>
+            <path d="M80,14 Q85,20 88,24" stroke="#f5e3bc" stroke-width="1.8" stroke-linecap="round" filter="url(#fish-glow)"/>
+          </g>
+          <circle cx="16" cy="14" r="1.5" fill="#f5e3bc" filter="url(#fish-glow)"/>
+          <circle cx="25" cy="14" r="1.5" fill="#f5e3bc" filter="url(#fish-glow)"/>
+          <circle cx="35" cy="14" r="1.5" fill="#f5e3bc" filter="url(#fish-glow)"/>
+          <circle cx="44" cy="14" r="1.5" fill="#f5e3bc" filter="url(#fish-glow)"/>
+          <circle cx="53" cy="14" r="1.5" fill="#f5e3bc" filter="url(#fish-glow)"/>
+          <circle cx="63" cy="14" r="1.5" fill="#f5e3bc" filter="url(#fish-glow)"/>
+          <circle cx="72" cy="14" r="1.5" fill="#f5e3bc" filter="url(#fish-glow)"/>
+          <g id="fish-rib-1">
+            <path d="M16,14 Q14,9 13,6" stroke="#f5e3bc" stroke-width="1.6" stroke-linecap="round" filter="url(#fish-glow)"/>
+            <path d="M16,14 Q14,19 13,22" stroke="#f5e3bc" stroke-width="1.6" stroke-linecap="round" filter="url(#fish-glow)"/>
+          </g>
+          <g id="fish-rib-2">
+            <path d="M25,14 Q23,7 22,3" stroke="#f5e3bc" stroke-width="1.6" stroke-linecap="round" filter="url(#fish-glow)"/>
+            <path d="M25,14 Q23,21 22,25" stroke="#f5e3bc" stroke-width="1.6" stroke-linecap="round" filter="url(#fish-glow)"/>
+          </g>
+          <g id="fish-rib-3">
+            <path d="M35,14 Q33,6 32,2" stroke="#f5e3bc" stroke-width="1.6" stroke-linecap="round" filter="url(#fish-glow)"/>
+            <path d="M35,14 Q33,22 32,26" stroke="#f5e3bc" stroke-width="1.6" stroke-linecap="round" filter="url(#fish-glow)"/>
+          </g>
+          <g id="fish-rib-4">
+            <path d="M44,14 Q42,6 41,2" stroke="#f5e3bc" stroke-width="1.6" stroke-linecap="round" filter="url(#fish-glow)"/>
+            <path d="M44,14 Q42,22 41,26" stroke="#f5e3bc" stroke-width="1.6" stroke-linecap="round" filter="url(#fish-glow)"/>
+          </g>
+          <g id="fish-rib-5">
+            <path d="M53,14 Q51,6 50,2" stroke="#f5e3bc" stroke-width="1.6" stroke-linecap="round" filter="url(#fish-glow)"/>
+            <path d="M53,14 Q51,22 50,26" stroke="#f5e3bc" stroke-width="1.6" stroke-linecap="round" filter="url(#fish-glow)"/>
+          </g>
+          <g id="fish-rib-6">
+            <path d="M63,14 Q61,7 60,3" stroke="#f5e3bc" stroke-width="1.6" stroke-linecap="round" filter="url(#fish-glow)"/>
+            <path d="M63,14 Q61,21 60,25" stroke="#f5e3bc" stroke-width="1.6" stroke-linecap="round" filter="url(#fish-glow)"/>
+          </g>
+          <g id="fish-rib-7">
+            <path d="M72,14 Q70,9 69,6" stroke="#f5e3bc" stroke-width="1.6" stroke-linecap="round" filter="url(#fish-glow)"/>
+            <path d="M72,14 Q70,19 69,22" stroke="#f5e3bc" stroke-width="1.6" stroke-linecap="round" filter="url(#fish-glow)"/>
+          </g>
         </svg>
       </button>
     </div>
-
-    <!-- Mobile menu -->
-    <div id="mobile-menu">
-      <a href="#about"     class="nav-link" style="font-size:0.9rem;">About</a>
-      <a href="#menu"      class="nav-link" style="font-size:0.9rem;">Menu</a>
-      <a href="#reviews"   class="nav-link" style="font-size:0.9rem;">Reviews</a>
-      <a href="#contact"   class="nav-link" style="font-size:0.9rem;">Find Us</a>
-      <a href="#catchclub" class="btn-rust" style="text-align:center;margin-top:6px;">Claim Free Dessert</a>
-    </div>
   </nav>
+
+  <!-- Fullscreen menu overlay -->
+  <div id="fullscreen-menu" aria-hidden="true">
+    <div class="fm-wave3"></div>
+    <div class="fm-wave4"></div>
+    <div class="fm-wave5"></div>
+    <div class="fm-inner">
+      <a href="tel:8457650234" class="fm-phone">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 012 1.1 2 2 0 014 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 7.09a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+        (845) 765-0234
+      </a>
+      <nav class="fm-links">
+        <a href="#menu"    class="fm-link">Menu</a>
+        <a href="#about"   class="fm-link">About</a>
+        <a href="#reviews" class="fm-link">Reviews</a>
+        <a href="#contact" class="fm-link">Find Us</a>
+      </nav>
+      <a href="#catchclub" class="btn-rust fm-cta">Claim Free Dessert</a>
+    </div>
+  </div>
 
 
   <!-- ══════════════════════════════════════
@@ -375,15 +597,14 @@
 
     <!-- Bottom-anchored content — lets the branded image breathe -->
     <div style="position:absolute;bottom:0;left:0;right:0;z-index:3;padding:0 40px 56px;" class="hero-bottom">
-      <div style="max-width:1280px;margin:0 auto;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:20px;">
+      <div style="max-width:1280px;margin:0 auto;display:flex;align-items:flex-end;justify-content:flex-start;flex-wrap:wrap;gap:20px;">
 
         <!-- Left: tagline + CTAs -->
-        <div>
-          <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
-            <div style="height:1px;width:28px;background:rgba(90,180,212,0.7);"></div>
-            <span style="font-family:'Josefin Sans',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:#5ab4d4;">Wappingers Falls, NY &nbsp;·&nbsp; Est. 2008</span>
+        <div style="text-align:left;">
+          <div style="margin-bottom:10px;">
+            <span style="font-family:'Nunito',sans-serif;font-size:1rem;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:#5ab4d4;">Wappingers Falls, NY<br class="hero-eyebrow-break"> Est. 2008</span>
           </div>
-          <p class="hero-tagline" style="font-family:'Playfair Display',serif;font-size:clamp(1rem,2.2vw,1.3rem);font-style:italic;color:#f5e3bc;margin-bottom:20px;max-width:500px;line-height:1.55;">
+          <p class="hero-tagline" style="font-family:'Fraunces',serif;font-size:clamp(1rem,2.2vw,1.3rem);color:#f5e3bc;margin-bottom:20px;max-width:500px;line-height:1.55;">
             "Enjoy the Catch!" — Fresh seafood, family owned &amp; operated, serving the Hudson Valley since 2008.
           </p>
           <div style="display:flex;flex-wrap:wrap;gap:12px;">
@@ -392,11 +613,6 @@
           </div>
         </div>
 
-        <!-- Right: scroll cue -->
-        <div style="display:flex;flex-direction:column;align-items:center;gap:5px;padding-bottom:4px;">
-          <span style="font-family:'Josefin Sans',sans-serif;font-size:0.55rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(253,248,239,0.35);">Scroll</span>
-          <div style="width:1px;height:32px;background:rgba(253,248,239,0.28);animation:scrollPulse 2.2s ease infinite;"></div>
-        </div>
 
       </div>
     </div>
@@ -407,56 +623,12 @@
       #hero { min-height: 82vh; }
       .hero-bg { background-image: url('brand_assets/mobile_hero_2.png'); background-size: 100% auto; background-position: center top; background-color: #0d1f38; }
       .hero-bottom { padding: 0 20px 36px !important; }
-      .hero-bottom > div { flex-direction: column; align-items: flex-start; }
-      .hero-tagline { display: none !important; }
+      .hero-bottom > div { flex-direction: column; align-items: center; }
+      .hero-bottom > div > div { text-align: center !important; }
+      .hero-bottom > div > div > div { justify-content: center; }
+      .hero-eyebrow-break { display: block; }
     }
   </style>
-
-
-  <!-- ══════════════════════════════════════
-       INFO BAR
-  ══════════════════════════════════════ -->
-  <div class="info-bar" style="padding:18px 0;">
-    <div style="max-width:1100px;margin:0 auto;padding:0 24px;">
-      <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:20px 40px;">
-
-        <div class="info-item">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c44a2b" stroke-width="1.5" style="flex-shrink:0;">
-            <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
-          </svg>
-          <div>
-            <div style="font-family:'Josefin Sans',sans-serif;font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--rust);font-weight:700;">Hours</div>
-            <div style="font-family:'Lora',serif;font-size:0.83rem;color:var(--navy-deep);">Tue–Sat 4–9 PM &nbsp;·&nbsp; Sun 4–8:30 PM &nbsp;·&nbsp; Mon: Gone Fishin'</div>
-          </div>
-        </div>
-
-        <div class="info-divider hidden sm:block" style="background:rgba(30,61,110,0.15);"></div>
-
-        <div class="info-item">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c44a2b" stroke-width="1.5" style="flex-shrink:0;">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
-          </svg>
-          <div>
-            <div style="font-family:'Josefin Sans',sans-serif;font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--rust);font-weight:700;">Location</div>
-            <div style="font-family:'Lora',serif;font-size:0.83rem;color:var(--navy-deep);">1817 South Rd (Rt. 9), Wappingers Falls, NY</div>
-          </div>
-        </div>
-
-        <div class="info-divider hidden sm:block" style="background:rgba(30,61,110,0.15);"></div>
-
-        <div class="info-item">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c44a2b" stroke-width="1.5" style="flex-shrink:0;">
-            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 012 1.1 2 2 0 014 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 7.09a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
-          </svg>
-          <div>
-            <div style="font-family:'Josefin Sans',sans-serif;font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--rust);font-weight:700;">Reservations</div>
-            <a href="tel:8457650234" style="font-family:'Lora',serif;font-size:0.83rem;color:var(--navy-deep);text-decoration:none;">(845) 765-0234</a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
 
 
   <!-- About section moved below reviews -->
@@ -481,11 +653,6 @@
       <img src="brand_assets/fish_skeleton.png" alt="" style="height:80px;">
     </div>
 
-    <div class="wave-top">
-      <svg viewBox="0 0 1440 56" preserveAspectRatio="none">
-        <path d="M0,0 C480,56 960,0 1440,56 L1440,0 Z" fill="#fdf8ef"/>
-      </svg>
-    </div>
 
     <div style="max-width:1280px;margin:0 auto;padding:0 24px;padding-top:20px;">
 
@@ -495,7 +662,7 @@
           <span>Highlights From the Kitchen</span>
         </div>
         <h2 class="section-title" style="font-size:clamp(2rem,4vw,3rem);color:#fdf8ef;">
-          What We're <span style="font-style:italic;color:#f5e3bc;">Serving</span>
+          What We're <span style="color:#f5e3bc;">Serving</span>
         </h2>
       </div>
 
@@ -511,10 +678,10 @@
           <div style="padding:18px 22px 22px;">
             <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
               <span class="menu-badge">Hand Helds</span>
-              <span style="font-family:'Josefin Sans',sans-serif;font-size:1.05rem;font-weight:700;color:#5ab4d4;">$29</span>
+              <span style="font-family:'Nunito',sans-serif;font-size:1.05rem;font-weight:700;color:#5ab4d4;">$29</span>
             </div>
-            <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#fdf8ef;margin-bottom:8px;">N.E. Lobster Roll</h3>
-            <p style="font-family:'Lora',serif;font-size:0.845rem;color:rgba(245,227,188,0.6);line-height:1.7;">Hot or cold, a true New England classic. Generous fresh lobster on a toasted roll, served with salad and steak fries.</p>
+            <h3 style="font-family:'Fraunces',serif;font-size:1.2rem;font-weight:700;color:#fdf8ef;margin-bottom:8px;">N.E. Lobster Roll</h3>
+            <p style="font-family:'Nunito',sans-serif;font-size:1rem;color:rgba(245,227,188,0.6);line-height:1.7;">Hot or cold, a true New England classic. Generous fresh lobster on a toasted roll, served with salad and steak fries.</p>
           </div>
         </div>
 
@@ -527,10 +694,10 @@
           <div style="padding:18px 22px 22px;">
             <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
               <span class="menu-badge">Appetizer</span>
-              <span style="font-family:'Josefin Sans',sans-serif;font-size:1.05rem;font-weight:700;color:#5ab4d4;">$18</span>
+              <span style="font-family:'Nunito',sans-serif;font-size:1.05rem;font-weight:700;color:#5ab4d4;">$18</span>
             </div>
-            <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#fdf8ef;margin-bottom:8px;">Fried Calamari</h3>
-            <p style="font-family:'Lora',serif;font-size:0.845rem;color:rgba(245,227,188,0.6);line-height:1.7;">Golden crispy rings — classic, buffalo, or BBQ (+$3). A table staple since the very first night we opened.</p>
+            <h3 style="font-family:'Fraunces',serif;font-size:1.2rem;font-weight:700;color:#fdf8ef;margin-bottom:8px;">Fried Calamari</h3>
+            <p style="font-family:'Nunito',sans-serif;font-size:1rem;color:rgba(245,227,188,0.6);line-height:1.7;">Golden crispy rings — classic, buffalo, or BBQ (+$3). A table staple since the very first night we opened.</p>
           </div>
         </div>
 
@@ -543,10 +710,10 @@
           <div style="padding:18px 22px 22px;">
             <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
               <span class="menu-badge">Pasta Entrée</span>
-              <span style="font-family:'Josefin Sans',sans-serif;font-size:1.05rem;font-weight:700;color:#5ab4d4;">$34</span>
+              <span style="font-family:'Nunito',sans-serif;font-size:1.05rem;font-weight:700;color:#5ab4d4;">$34</span>
             </div>
-            <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#fdf8ef;margin-bottom:8px;">Pan Seared Scallops</h3>
-            <p style="font-family:'Lora',serif;font-size:0.845rem;color:rgba(245,227,188,0.6);line-height:1.7;">Seared in lobster sauce with tomatoes, wilted spinach &amp; parmesan over linguini. Unforgettable.</p>
+            <h3 style="font-family:'Fraunces',serif;font-size:1.2rem;font-weight:700;color:#fdf8ef;margin-bottom:8px;">Pan Seared Scallops</h3>
+            <p style="font-family:'Nunito',sans-serif;font-size:1rem;color:rgba(245,227,188,0.6);line-height:1.7;">Seared in lobster sauce with tomatoes, wilted spinach &amp; parmesan over linguini. Unforgettable.</p>
           </div>
         </div>
 
@@ -559,10 +726,10 @@
           <div style="padding:18px 22px 22px;">
             <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
               <span class="menu-badge">Sea Entrée</span>
-              <span style="font-family:'Josefin Sans',sans-serif;font-size:1.05rem;font-weight:700;color:#5ab4d4;">from $49</span>
+              <span style="font-family:'Nunito',sans-serif;font-size:1.05rem;font-weight:700;color:#5ab4d4;">from $49</span>
             </div>
-            <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#fdf8ef;margin-bottom:8px;">Twin Lobster Tails</h3>
-            <p style="font-family:'Lora',serif;font-size:0.845rem;color:rgba(245,227,188,0.6);line-height:1.7;">Two cold-water lobster tails — broiled, stuffed with crabmeat, or panko-crusted. Includes salad &amp; side.</p>
+            <h3 style="font-family:'Fraunces',serif;font-size:1.2rem;font-weight:700;color:#fdf8ef;margin-bottom:8px;">Twin Lobster Tails</h3>
+            <p style="font-family:'Nunito',sans-serif;font-size:1rem;color:rgba(245,227,188,0.6);line-height:1.7;">Two cold-water lobster tails — broiled, stuffed with crabmeat, or panko-crusted. Includes salad &amp; side.</p>
           </div>
         </div>
 
@@ -575,10 +742,10 @@
           <div style="padding:18px 22px 22px;">
             <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
               <span class="menu-badge">Appetizer</span>
-              <span style="font-family:'Josefin Sans',sans-serif;font-size:1.05rem;font-weight:700;color:#5ab4d4;">$18</span>
+              <span style="font-family:'Nunito',sans-serif;font-size:1.05rem;font-weight:700;color:#5ab4d4;">$18</span>
             </div>
-            <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#fdf8ef;margin-bottom:8px;">6oz Crab Cake</h3>
-            <p style="font-family:'Lora',serif;font-size:0.845rem;color:rgba(245,227,188,0.6);line-height:1.7;">Fried golden, topped with sweet corn relish and house-made remoulade sauce. A crowd-pleasing classic.</p>
+            <h3 style="font-family:'Fraunces',serif;font-size:1.2rem;font-weight:700;color:#fdf8ef;margin-bottom:8px;">6oz Crab Cake</h3>
+            <p style="font-family:'Nunito',sans-serif;font-size:1rem;color:rgba(245,227,188,0.6);line-height:1.7;">Fried golden, topped with sweet corn relish and house-made remoulade sauce. A crowd-pleasing classic.</p>
           </div>
         </div>
 
@@ -591,10 +758,10 @@
           <div style="padding:18px 22px 22px;">
             <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
               <span class="menu-badge">Signature</span>
-              <span style="font-family:'Josefin Sans',sans-serif;font-size:1.05rem;font-weight:700;color:#5ab4d4;">$49</span>
+              <span style="font-family:'Nunito',sans-serif;font-size:1.05rem;font-weight:700;color:#5ab4d4;">$49</span>
             </div>
-            <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#fdf8ef;margin-bottom:8px;">Surf &amp; Turf</h3>
-            <p style="font-family:'Lora',serif;font-size:0.845rem;color:rgba(245,227,188,0.6);line-height:1.7;">8oz steak or half rack of ribs with shrimp, scallops, or lobster tail. Add crab stuffing +$7.</p>
+            <h3 style="font-family:'Fraunces',serif;font-size:1.2rem;font-weight:700;color:#fdf8ef;margin-bottom:8px;">Surf &amp; Turf</h3>
+            <p style="font-family:'Nunito',sans-serif;font-size:1rem;color:rgba(245,227,188,0.6);line-height:1.7;">8oz steak or half rack of ribs with shrimp, scallops, or lobster tail. Add crab stuffing +$7.</p>
           </div>
         </div>
 
@@ -603,7 +770,7 @@
       <!-- Full Menu CTA -->
       <div class="fade-up" style="text-align:center;margin-top:52px;">
         <a href="brand_assets/joe_willys_menu.pdf" target="_blank" class="btn-rust">See Full Menu</a>
-        <p style="font-family:'Josefin Sans',sans-serif;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(245,227,188,0.3);margin-top:10px;">Opens PDF in new tab</p>
+        <p style="font-family:'Nunito',sans-serif;font-size:1rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(245,227,188,0.3);margin-top:10px;">Opens PDF in new tab</p>
       </div>
 
     </div>
@@ -630,7 +797,7 @@
       <div class="fade-up" style="text-align:center;margin-bottom:44px;">
         <div class="eyebrow" style="margin-bottom:12px;"><span>Deals &amp; Promotions</span></div>
         <h2 class="section-title" style="font-size:clamp(1.8rem,3.5vw,2.6rem);color:var(--navy);">
-          Weekly <span style="font-style:italic;color:var(--rust);">Specials</span>
+          Weekly <span style="color:var(--rust);">Specials</span>
         </h2>
       </div>
 
@@ -646,9 +813,9 @@
               <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
             </svg>
           </div>
-          <div style="font-family:'Josefin Sans',sans-serif;font-size:0.58rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--rust);margin-bottom:8px;">Daily · 4 – 6 PM</div>
-          <h3 style="font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;color:#fdf8ef;margin-bottom:12px;line-height:1.2;">Happy Hour<br><span style="font-style:italic;color:#f5e3bc;">at the Bar</span></h3>
-          <p style="font-family:'Lora',serif;font-size:0.875rem;color:rgba(245,227,188,0.6);line-height:1.7;">$2 off all appetizers and drinks every day during happy hour. Best way to start your evening.</p>
+          <div style="font-family:'Nunito',sans-serif;font-size:1rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--rust);margin-bottom:8px;">Daily · 4 – 6 PM</div>
+          <h3 style="font-family:'Fraunces',serif;font-size:1.35rem;font-weight:700;color:#fdf8ef;margin-bottom:12px;line-height:1.2;">Happy Hour<br><span style="color:#f5e3bc;">at the Bar</span></h3>
+          <p style="font-family:'Nunito',sans-serif;font-size:1rem;color:rgba(245,227,188,0.6);line-height:1.7;">$2 off all appetizers and drinks every day during happy hour. Best way to start your evening.</p>
         </div>
 
         <!-- Wine Wednesdays -->
@@ -661,9 +828,9 @@
               <path d="M8 22h8M12 11v11M6 2h12l-2 9a4 4 0 01-8 0L6 2z"/>
             </svg>
           </div>
-          <div style="font-family:'Josefin Sans',sans-serif;font-size:0.58rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#5ab4d4;margin-bottom:8px;">Every Wednesday</div>
-          <h3 style="font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;color:#fdf8ef;margin-bottom:12px;line-height:1.2;">Wine<br><span style="font-style:italic;color:#f5e3bc;">Wednesdays</span></h3>
-          <p style="font-family:'Lora',serif;font-size:0.875rem;color:rgba(245,227,188,0.6);line-height:1.7;">Half price on all wine bottles every Wednesday. The perfect mid-week excuse to treat yourself.</p>
+          <div style="font-family:'Nunito',sans-serif;font-size:1rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#5ab4d4;margin-bottom:8px;">Every Wednesday</div>
+          <h3 style="font-family:'Fraunces',serif;font-size:1.35rem;font-weight:700;color:#fdf8ef;margin-bottom:12px;line-height:1.2;">Wine<br><span style="color:#f5e3bc;">Wednesdays</span></h3>
+          <p style="font-family:'Nunito',sans-serif;font-size:1rem;color:rgba(245,227,188,0.6);line-height:1.7;">Half price on all wine bottles every Wednesday. The perfect mid-week excuse to treat yourself.</p>
         </div>
 
         <!-- Kids Eat Half Price -->
@@ -677,9 +844,9 @@
               <path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/>
             </svg>
           </div>
-          <div style="font-family:'Josefin Sans',sans-serif;font-size:0.58rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--rust);margin-bottom:8px;">Sun – Thu</div>
-          <h3 style="font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;color:#fdf8ef;margin-bottom:12px;line-height:1.2;">Kids Eat<br><span style="font-style:italic;color:#f5e3bc;">Half Price</span></h3>
-          <p style="font-family:'Lora',serif;font-size:0.875rem;color:rgba(245,227,188,0.6);line-height:1.7;">Kids eat half price Sunday through Thursday with the purchase of one adult entrée. Great for family night out.</p>
+          <div style="font-family:'Nunito',sans-serif;font-size:1rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--rust);margin-bottom:8px;">Sun – Thu</div>
+          <h3 style="font-family:'Fraunces',serif;font-size:1.35rem;font-weight:700;color:#fdf8ef;margin-bottom:12px;line-height:1.2;">Kids Eat<br><span style="color:#f5e3bc;">Half Price</span></h3>
+          <p style="font-family:'Nunito',sans-serif;font-size:1rem;color:rgba(245,227,188,0.6);line-height:1.7;">Kids eat half price Sunday through Thursday with the purchase of one adult entrée. Great for family night out.</p>
         </div>
 
       </div>
@@ -706,7 +873,7 @@
       <div class="fade-up" style="text-align:center;margin-bottom:40px;">
         <div class="eyebrow" style="margin-bottom:12px;"><span>Inside the Shack</span></div>
         <h2 class="section-title" style="font-size:clamp(1.8rem,3.5vw,2.6rem);color:var(--navy);">
-          The <span style="font-style:italic;color:var(--rust);">Atmosphere</span>
+          The <span style="color:var(--rust);">Atmosphere</span>
         </h2>
       </div>
 
@@ -744,25 +911,14 @@
       <img src="brand_assets/fish_skeleton.png" alt="" style="height:90px;">
     </div>
     <div style="max-width:1120px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:28px;position:relative;z-index:1;">
-      <div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap;">
-        <!-- Icon -->
-        <div style="flex-shrink:0;width:56px;height:56px;border:2px solid rgba(90,180,212,0.35);border-radius:2px;display:flex;align-items:center;justify-content:center;">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#5ab4d4" stroke-width="1.5">
-            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
-            <circle cx="9" cy="7" r="4"/>
-            <path d="M23 21v-2a4 4 0 00-3-3.87"/>
-            <path d="M16 3.13a4 4 0 010 7.75"/>
-          </svg>
+      <div>
+        <div style="font-family:'Nunito',sans-serif;font-size:1rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#5ab4d4;margin-bottom:4px;">Private Events &amp; Celebrations</div>
+        <div style="font-family:'Fraunces',serif;font-size:clamp(1.1rem,2.2vw,1.5rem);font-weight:700;color:#fdf8ef;line-height:1.2;">
+          Party Room Available for Rental
         </div>
-        <div>
-          <div style="font-family:'Josefin Sans',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#5ab4d4;margin-bottom:4px;">Private Events &amp; Celebrations</div>
-          <div style="font-family:'Playfair Display',serif;font-size:clamp(1.1rem,2.2vw,1.5rem);font-weight:700;color:#fdf8ef;line-height:1.2;">
-            Party Room Available for Rental
-          </div>
-          <p style="font-family:'Lora',serif;font-size:0.875rem;color:rgba(245,227,188,0.6);margin-top:6px;line-height:1.6;">
-            Host your birthday, anniversary, or company dinner in our private dining room. Perfect for groups of all sizes.
-          </p>
-        </div>
+        <p style="font-family:'Nunito',sans-serif;font-size:1rem;color:rgba(245,227,188,0.6);margin-top:6px;line-height:1.6;">
+          Birthdays, anniversaries, company dinners — call us to book.
+        </p>
       </div>
       <a href="tel:8457650234" class="btn-rust" style="white-space:nowrap;flex-shrink:0;">Call to Book</a>
     </div>
@@ -798,15 +954,15 @@
 
       <!-- Badge -->
       <div style="display:inline-block;background:rgba(255,255,255,0.14);border:1px solid rgba(255,255,255,0.24);border-radius:100px;padding:6px 20px;margin-bottom:20px;">
-        <span style="font-family:'Josefin Sans',sans-serif;font-size:0.62rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#fff;">Catch Club Members Only</span>
+        <span style="font-family:'Nunito',sans-serif;font-size:1rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#fff;">Catch Club Members Only</span>
       </div>
 
-      <h2 style="font-family:'Playfair Display',serif;font-weight:900;color:#fff;letter-spacing:-0.02em;line-height:1.08;margin-bottom:16px;font-size:clamp(2rem,5vw,3.2rem);">
+      <h2 style="font-family:'Fraunces',serif;font-weight:900;color:#fff;letter-spacing:-0.02em;line-height:1.08;margin-bottom:16px;font-size:clamp(2rem,5vw,3.2rem);">
         Get a Free Dessert<br>
-        <span style="font-style:italic;color:rgba(255,255,255,0.78);font-size:0.82em;">On Your Next Visit</span>
+        <span style="color:rgba(255,255,255,0.78);font-size:0.82em;">On Your Next Visit</span>
       </h2>
 
-      <p style="font-family:'Lora',serif;font-size:0.975rem;color:rgba(255,255,255,0.8);line-height:1.8;margin-bottom:32px;">
+      <p style="font-family:'Nunito',sans-serif;font-size:1rem;color:rgba(255,255,255,0.8);line-height:1.8;margin-bottom:32px;">
         Join the Catch Club and we'll send you a free dessert voucher — your choice of NY Style Cheesecake, Cannoli, Lava Cake, and more. Plus get first access to seasonal specials and menu updates.
       </p>
 
@@ -816,7 +972,7 @@
           <input type="email" id="email-input" required placeholder="your@email.com" class="email-input" style="flex:1;">
           <button type="submit" class="btn-navy">Claim It</button>
         </form>
-        <p style="font-family:'Lora',serif;font-size:0.78rem;color:rgba(255,255,255,0.42);margin-top:12px;font-style:italic;">
+        <p style="font-family:'Nunito',sans-serif;font-size:1rem;color:rgba(255,255,255,0.42);margin-top:12px;font-style:italic;">
           No spam, ever. Unsubscribe anytime.
         </p>
       </div>
@@ -824,8 +980,8 @@
       <!-- Success -->
       <div id="catchclub-success" style="display:none;">
         <div style="font-size:3rem;margin-bottom:14px;">🍰</div>
-        <h3 style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:#fff;margin-bottom:10px;">You're In!</h3>
-        <p style="font-family:'Lora',serif;font-size:0.975rem;color:rgba(255,255,255,0.85);line-height:1.75;">
+        <h3 style="font-family:'Fraunces',serif;font-size:1.8rem;font-weight:700;color:#fff;margin-bottom:10px;">You're In!</h3>
+        <p style="font-family:'Nunito',sans-serif;font-size:1rem;color:rgba(255,255,255,0.85);line-height:1.75;">
           Welcome to the Catch Club! Your free dessert voucher is on its way. Show it to the host on your next visit. See you soon!
         </p>
       </div>
@@ -856,7 +1012,7 @@
       <div class="fade-up" style="text-align:center;margin-bottom:52px;">
         <div class="eyebrow" style="margin-bottom:12px;"><span>Google Reviews</span></div>
         <h2 class="section-title" style="font-size:clamp(1.8rem,3.5vw,2.6rem);color:var(--navy);">
-          What Our <span style="font-style:italic;color:var(--rust);">Guests Say</span>
+          What Our <span style="color:var(--rust);">Guests Say</span>
         </h2>
       </div>
 
@@ -873,19 +1029,19 @@
                 <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
                 <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
               </svg>
-              <span style="font-family:'Josefin Sans',sans-serif;font-size:0.58rem;font-weight:700;letter-spacing:0.1em;color:#9ca3af;text-transform:uppercase;">Google</span>
+              <span style="font-family:'Nunito',sans-serif;font-size:1rem;font-weight:700;letter-spacing:0.1em;color:#9ca3af;text-transform:uppercase;">Google</span>
             </div>
           </div>
-          <blockquote style="font-family:'Lora',serif;font-size:0.905rem;line-height:1.78;color:#374151;font-style:italic;margin-bottom:18px;">
+          <blockquote style="font-family:'Nunito',sans-serif;font-size:1rem;line-height:1.78;color:#374151;font-style:italic;margin-bottom:18px;">
             "The best seafood in the Hudson Valley, hands down. The lobster roll is incredible — fresh, generous, and perfectly dressed. This family-owned gem never disappoints. We drive 45 minutes just to eat here!"
           </blockquote>
           <div style="display:flex;align-items:center;gap:10px;">
             <div style="width:36px;height:36px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-              <span style="font-family:'Josefin Sans',sans-serif;font-size:0.85rem;font-weight:700;color:#fdf8ef;">M</span>
+              <span style="font-family:'Nunito',sans-serif;font-size:1rem;font-weight:700;color:#fdf8ef;">M</span>
             </div>
             <div>
-              <div style="font-family:'Josefin Sans',sans-serif;font-size:0.78rem;font-weight:700;color:#1a2c40;letter-spacing:0.04em;">Maria S.</div>
-              <div style="font-family:'Lora',serif;font-size:0.7rem;color:#9ca3af;font-style:italic;">2 months ago</div>
+              <div style="font-family:'Nunito',sans-serif;font-size:1rem;font-weight:700;color:#1a2c40;letter-spacing:0.04em;">Maria S.</div>
+              <div style="font-family:'Nunito',sans-serif;font-size:1rem;color:#9ca3af;font-style:italic;">2 months ago</div>
             </div>
           </div>
         </div>
@@ -901,19 +1057,19 @@
                 <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
                 <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
               </svg>
-              <span style="font-family:'Josefin Sans',sans-serif;font-size:0.58rem;font-weight:700;letter-spacing:0.1em;color:#9ca3af;text-transform:uppercase;">Google</span>
+              <span style="font-family:'Nunito',sans-serif;font-size:1rem;font-weight:700;letter-spacing:0.1em;color:#9ca3af;text-transform:uppercase;">Google</span>
             </div>
           </div>
-          <blockquote style="font-family:'Lora',serif;font-size:0.905rem;line-height:1.78;color:#374151;font-style:italic;margin-bottom:18px;">
+          <blockquote style="font-family:'Nunito',sans-serif;font-size:1rem;line-height:1.78;color:#374151;font-style:italic;margin-bottom:18px;">
             "Been coming to Joe Willy's for years and it never gets old. The crab cakes are world-class, and the atmosphere feels like a real New England fish shack. Staff is always warm and welcoming."
           </blockquote>
           <div style="display:flex;align-items:center;gap:10px;">
             <div style="width:36px;height:36px;border-radius:50%;background:var(--rust);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-              <span style="font-family:'Josefin Sans',sans-serif;font-size:0.85rem;font-weight:700;color:#fff;">T</span>
+              <span style="font-family:'Nunito',sans-serif;font-size:1rem;font-weight:700;color:#fff;">T</span>
             </div>
             <div>
-              <div style="font-family:'Josefin Sans',sans-serif;font-size:0.78rem;font-weight:700;color:#1a2c40;letter-spacing:0.04em;">Tom R.</div>
-              <div style="font-family:'Lora',serif;font-size:0.7rem;color:#9ca3af;font-style:italic;">1 month ago</div>
+              <div style="font-family:'Nunito',sans-serif;font-size:1rem;font-weight:700;color:#1a2c40;letter-spacing:0.04em;">Tom R.</div>
+              <div style="font-family:'Nunito',sans-serif;font-size:1rem;color:#9ca3af;font-style:italic;">1 month ago</div>
             </div>
           </div>
         </div>
@@ -929,19 +1085,19 @@
                 <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
                 <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
               </svg>
-              <span style="font-family:'Josefin Sans',sans-serif;font-size:0.58rem;font-weight:700;letter-spacing:0.1em;color:#9ca3af;text-transform:uppercase;">Google</span>
+              <span style="font-family:'Nunito',sans-serif;font-size:1rem;font-weight:700;letter-spacing:0.1em;color:#9ca3af;text-transform:uppercase;">Google</span>
             </div>
           </div>
-          <blockquote style="font-family:'Lora',serif;font-size:0.905rem;line-height:1.78;color:#374151;font-style:italic;margin-bottom:18px;">
+          <blockquote style="font-family:'Nunito',sans-serif;font-size:1rem;line-height:1.78;color:#374151;font-style:italic;margin-bottom:18px;">
             "Incredible food and even better vibes. The pan seared scallops were perfectly cooked — some of the best I've ever had. Great date night spot with a lively bar scene. Highly recommend!"
           </blockquote>
           <div style="display:flex;align-items:center;gap:10px;">
             <div style="width:36px;height:36px;border-radius:50%;background:var(--sky);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-              <span style="font-family:'Josefin Sans',sans-serif;font-size:0.85rem;font-weight:700;color:#fff;">L</span>
+              <span style="font-family:'Nunito',sans-serif;font-size:1rem;font-weight:700;color:#fff;">L</span>
             </div>
             <div>
-              <div style="font-family:'Josefin Sans',sans-serif;font-size:0.78rem;font-weight:700;color:#1a2c40;letter-spacing:0.04em;">Lisa M.</div>
-              <div style="font-family:'Lora',serif;font-size:0.7rem;color:#9ca3af;font-style:italic;">3 weeks ago</div>
+              <div style="font-family:'Nunito',sans-serif;font-size:1rem;font-weight:700;color:#1a2c40;letter-spacing:0.04em;">Lisa M.</div>
+              <div style="font-family:'Nunito',sans-serif;font-size:1rem;color:#9ca3af;font-style:italic;">3 weeks ago</div>
             </div>
           </div>
         </div>
@@ -951,7 +1107,7 @@
       <!-- Link to Google -->
       <div class="fade-up" style="text-align:center;margin-top:44px;">
         <a href="https://www.google.com/maps/search/Joe+Willy%27s+Seafood+House+Wappingers+Falls" target="_blank"
-           style="font-family:'Josefin Sans',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--navy);text-decoration:none;border-bottom:2px solid rgba(30,61,110,0.25);padding-bottom:2px;transition:color .2s,border-color .2s;"
+           style="font-family:'Nunito',sans-serif;font-size:1rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--navy);text-decoration:none;border-bottom:2px solid rgba(30,61,110,0.25);padding-bottom:2px;transition:color .2s,border-color .2s;"
            onmouseover="this.style.color='var(--rust)';this.style.borderColor='var(--rust)';"
            onmouseout="this.style.color='var(--navy)';this.style.borderColor='rgba(30,61,110,0.25)';">
           View All Reviews on Google &rarr;
@@ -999,18 +1155,18 @@
           </div>
           <h2 class="section-title" style="font-size:clamp(2rem,3.5vw,2.8rem);color:#fdf8ef;margin-bottom:24px;">
             Family Owned &amp;<br>
-            <span style="font-style:italic;color:#f5e3bc;">Ocean Fresh</span>
+            <span style="color:#f5e3bc;">Ocean Fresh</span>
           </h2>
-          <p style="font-family:'Lora',serif;font-size:0.975rem;line-height:1.85;color:rgba(245,227,188,0.7);margin-bottom:18px;">
+          <p style="font-family:'Nunito',sans-serif;font-size:1rem;line-height:1.85;color:rgba(245,227,188,0.7);margin-bottom:18px;">
             After decades of expertise in the wholesale seafood business, Joe Willy's became our dream. We opened our doors in 2008 at Westside Plaza in Wappingers Falls and have been a fixture in this community ever since — thanks entirely to your continued support.
           </p>
-          <p style="font-family:'Lora',serif;font-size:0.975rem;line-height:1.85;color:rgba(245,227,188,0.7);margin-bottom:28px;">
+          <p style="font-family:'Nunito',sans-serif;font-size:1rem;line-height:1.85;color:rgba(245,227,188,0.7);margin-bottom:28px;">
             We source the freshest catch daily. From our signature New England Lobster Roll to our fresh-shucked raw bar, every plate is made with the same care that has kept families coming back for over 17 years.
           </p>
 
           <!-- Food Network badge -->
           <div style="margin-top:4px;">
-            <div style="font-family:'Josefin Sans',sans-serif;font-size:0.58rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:rgba(245,227,188,0.4);margin-bottom:14px;display:flex;align-items:center;gap:10px;">
+            <div style="font-family:'Nunito',sans-serif;font-size:1rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:rgba(245,227,188,0.4);margin-bottom:14px;display:flex;align-items:center;gap:10px;">
               <div style="height:1px;width:24px;background:rgba(245,227,188,0.2);"></div>
               Featured On
               <div style="height:1px;flex:1;background:rgba(245,227,188,0.2);"></div>
@@ -1048,11 +1204,11 @@
           <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
             <img src="brand_assets/joe_willys_square_logo.png" alt="Joe Willy's" style="height:50px;width:50px;object-fit:contain;opacity:0.88;">
             <div>
-              <div style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:#fdf8ef;">Joe Willy's</div>
-              <div style="font-family:'Josefin Sans',sans-serif;font-size:0.52rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(245,227,188,0.45);">Seafood House</div>
+              <div style="font-family:'Fraunces',serif;font-size:1.1rem;font-weight:700;color:#fdf8ef;">Joe Willy's</div>
+              <div style="font-family:'Nunito',sans-serif;font-size:1rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(245,227,188,0.45);">Seafood House</div>
             </div>
           </div>
-          <p style="font-family:'Lora',serif;font-size:0.875rem;color:rgba(245,227,188,0.5);line-height:1.75;font-style:italic;margin-bottom:16px;">
+          <p style="font-family:'Nunito',sans-serif;font-size:1rem;color:rgba(245,227,188,0.5);line-height:1.75;font-style:italic;margin-bottom:16px;">
             "Enjoy the Catch!" &mdash; Fresh seafood, family owned &amp; operated, proudly serving the Hudson Valley since 2008.
           </p>
           <div style="height:2px;width:36px;background:var(--rust);margin-bottom:16px;"></div>
@@ -1063,26 +1219,26 @@
 
         <!-- Hours -->
         <div>
-          <h4 style="font-family:'Josefin Sans',sans-serif;font-size:0.62rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--rust);margin-bottom:18px;">Hours of Operation</h4>
+          <h4 style="font-family:'Nunito',sans-serif;font-size:1rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--rust);margin-bottom:18px;">Hours of Operation</h4>
           <div style="display:flex;flex-direction:column;gap:12px;">
             <div style="display:flex;justify-content:space-between;gap:12px;">
-              <span style="font-family:'Lora',serif;font-size:0.86rem;color:rgba(245,227,188,0.5);">Tue – Sat</span>
-              <span style="font-family:'Lora',serif;font-size:0.86rem;color:#fdf8ef;font-weight:500;">4:00 – 9:00 PM</span>
+              <span style="font-family:'Nunito',sans-serif;font-size:1rem;color:rgba(245,227,188,0.5);">Tue – Sat</span>
+              <span style="font-family:'Nunito',sans-serif;font-size:1rem;color:#fdf8ef;font-weight:500;">4:00 – 9:00 PM</span>
             </div>
             <div style="display:flex;justify-content:space-between;gap:12px;">
-              <span style="font-family:'Lora',serif;font-size:0.86rem;color:rgba(245,227,188,0.5);">Sunday</span>
-              <span style="font-family:'Lora',serif;font-size:0.86rem;color:#fdf8ef;font-weight:500;">4:00 – 8:30 PM</span>
+              <span style="font-family:'Nunito',sans-serif;font-size:1rem;color:rgba(245,227,188,0.5);">Sunday</span>
+              <span style="font-family:'Nunito',sans-serif;font-size:1rem;color:#fdf8ef;font-weight:500;">4:00 – 8:30 PM</span>
             </div>
             <div style="display:flex;justify-content:space-between;gap:12px;">
-              <span style="font-family:'Lora',serif;font-size:0.86rem;color:rgba(245,227,188,0.5);">Monday</span>
-              <span style="font-family:'Lora',serif;font-size:0.86rem;color:rgba(245,227,188,0.35);font-style:italic;">Gone Fishin'</span>
+              <span style="font-family:'Nunito',sans-serif;font-size:1rem;color:rgba(245,227,188,0.5);">Monday</span>
+              <span style="font-family:'Nunito',sans-serif;font-size:1rem;color:rgba(245,227,188,0.35);font-style:italic;">Gone Fishin'</span>
             </div>
           </div>
         </div>
 
         <!-- Contact -->
         <div>
-          <h4 style="font-family:'Josefin Sans',sans-serif;font-size:0.62rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--rust);margin-bottom:18px;">Find Us</h4>
+          <h4 style="font-family:'Nunito',sans-serif;font-size:1rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--rust);margin-bottom:18px;">Find Us</h4>
           <div style="display:flex;flex-direction:column;gap:16px;">
 
             <div style="display:flex;align-items:flex-start;gap:10px;">
@@ -1090,11 +1246,7 @@
                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
               </svg>
               <div>
-                <div style="font-family:'Lora',serif;font-size:0.86rem;color:#fdf8ef;line-height:1.6;">Westside Plaza<br>1817 South Road (Rt. 9)<br>Wappingers Falls, NY 12590</div>
-                <a href="https://maps.google.com/?q=1817+South+Road+Wappingers+Falls+NY" target="_blank"
-                   style="font-family:'Josefin Sans',sans-serif;font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;color:#5ab4d4;text-decoration:none;margin-top:6px;display:inline-block;border-bottom:1px solid rgba(90,180,212,0.3);">
-                  Get Directions &rarr;
-                </a>
+                <a href="https://maps.google.com/?q=1817+South+Road+Wappingers+Falls+NY" target="_blank" style="font-family:'Nunito',sans-serif;font-size:1rem;color:#fdf8ef;line-height:1.6;text-decoration:none;">Westside Plaza<br>1817 South Road (Rt. 9)<br>Wappingers Falls, NY 12590</a>
               </div>
             </div>
 
@@ -1102,14 +1254,14 @@
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5ab4d4" stroke-width="1.5" style="flex-shrink:0;">
                 <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 012 1.1 2 2 0 014 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 7.09a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
               </svg>
-              <a href="tel:8457650234" style="font-family:'Lora',serif;font-size:0.86rem;color:#fdf8ef;text-decoration:none;">(845) 765-0234</a>
+              <a href="tel:8457650234" style="font-family:'Nunito',sans-serif;font-size:1rem;color:#fdf8ef;text-decoration:none;">(845) 765-0234</a>
             </div>
 
             <div style="display:flex;align-items:center;gap:10px;">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5ab4d4" stroke-width="1.5" style="flex-shrink:0;">
                 <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
               </svg>
-              <a href="https://www.facebook.com/JoeWillysSeafood" target="_blank" style="font-family:'Lora',serif;font-size:0.86rem;color:#fdf8ef;text-decoration:none;opacity:0.8;">Facebook</a>
+              <a href="https://www.facebook.com/JoeWillysSeafood" target="_blank" style="font-family:'Nunito',sans-serif;font-size:1rem;color:#fdf8ef;text-decoration:none;opacity:0.8;">Facebook</a>
             </div>
 
             <div style="display:flex;align-items:center;gap:10px;">
@@ -1118,14 +1270,14 @@
                 <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/>
                 <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
               </svg>
-              <a href="https://www.instagram.com/joewillysseafood" target="_blank" style="font-family:'Lora',serif;font-size:0.86rem;color:#fdf8ef;text-decoration:none;opacity:0.8;">@joewillysseafood</a>
+              <a href="https://www.instagram.com/joewillysseafood" target="_blank" style="font-family:'Nunito',sans-serif;font-size:1rem;color:#fdf8ef;text-decoration:none;opacity:0.8;">@joewillysseafood</a>
             </div>
 
             <div style="display:flex;align-items:center;gap:10px;">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5ab4d4" stroke-width="1.5" style="flex-shrink:0;">
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
               </svg>
-              <a href="mailto:joewillysrestaurant@yahoo.com" style="font-family:'Lora',serif;font-size:0.86rem;color:#fdf8ef;text-decoration:none;opacity:0.8;">joewillysrestaurant@yahoo.com</a>
+              <a href="mailto:joewillysrestaurant@yahoo.com" style="font-family:'Nunito',sans-serif;font-size:1rem;color:#fdf8ef;text-decoration:none;opacity:0.8;">joewillysrestaurant@yahoo.com</a>
             </div>
           </div>
         </div>
@@ -1134,7 +1286,7 @@
 
       <!-- Bottom bar -->
       <div style="border-top:1px solid rgba(245,227,188,0.07);padding-top:24px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;">
-        <p style="font-family:'Josefin Sans',sans-serif;font-size:0.62rem;letter-spacing:0.1em;color:rgba(245,227,188,0.28);">
+        <p style="font-family:'Nunito',sans-serif;font-size:1rem;letter-spacing:0.1em;color:rgba(245,227,188,0.28);">
           &copy; 2025 Joe Willy's Seafood House. All rights reserved.
         </p>
         <div style="display:flex;gap:24px;flex-wrap:wrap;">
@@ -1164,14 +1316,24 @@
       nav.classList.toggle('scrolled', window.scrollY > 50);
     }, { passive: true });
 
-    // Mobile menu toggle
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobile-menu');
-    hamburger.addEventListener('click', () => {
-      mobileMenu.classList.toggle('open');
+    // Fish skeleton menu
+    const fishBtn = document.getElementById('fish-btn');
+    const fullMenu = document.getElementById('fullscreen-menu');
+
+    fishBtn.addEventListener('click', () => {
+      const isOpen = fullMenu.classList.toggle('is-open');
+      document.getElementById('main-nav').classList.toggle('menu-open', isOpen);
+      fullMenu.setAttribute('aria-hidden', !isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
     });
-    mobileMenu.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => mobileMenu.classList.remove('open'));
+
+    fullMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        fullMenu.classList.remove('is-open');
+        document.getElementById('main-nav').classList.remove('menu-open');
+        fullMenu.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      });
     });
 
     // Email signup
@@ -1189,6 +1351,41 @@
           e.preventDefault();
           target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
+      });
+    });
+
+    // 3D card tilt
+    document.querySelectorAll('.menu-card').forEach(card => {
+      // Wrap in perspective container
+      const wrap = document.createElement('div');
+      wrap.style.cssText = 'perspective:900px;';
+      card.parentNode.insertBefore(wrap, card);
+      wrap.appendChild(card);
+
+      // Add glare element
+      const glare = document.createElement('div');
+      glare.className = 'menu-card-glare';
+      card.appendChild(glare);
+
+      card.addEventListener('mousemove', e => {
+        const r = card.getBoundingClientRect();
+        const x = e.clientX - r.left;
+        const y = e.clientY - r.top;
+        const cx = r.width / 2;
+        const cy = r.height / 2;
+        const rotY =  ((x - cx) / cx) * 10;
+        const rotX = -((y - cy) / cy) * 8;
+        card.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg) translateY(-6px)`;
+        glare.style.background = `radial-gradient(circle at ${(x/r.width)*100}% ${(y/r.height)*100}%, rgba(255,255,255,0.2) 0%, transparent 65%)`;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'rotateX(0deg) rotateY(0deg) translateY(0px)';
+        card.style.transition = 'transform 0.6s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s ease';
+      });
+
+      card.addEventListener('mouseenter', () => {
+        card.style.transition = 'box-shadow 0.4s ease';
       });
     });
 
