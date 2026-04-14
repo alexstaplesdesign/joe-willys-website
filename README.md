@@ -1,69 +1,35 @@
 # Joe Willy's Seafood House
 
-Website for **Joe Willy's Seafood House** — a family-owned seafood restaurant located at Westside Plaza, 1817 South Road (Rt. 9), Wappingers Falls, NY. As seen on Food Network's *Restaurant: Impossible*.
+Single-page website for Joe Willy's Seafood House — a family-owned seafood
+restaurant in Wappingers Falls, NY (Westside Plaza, Rt. 9). Featured on
+Food Network's *Restaurant: Impossible*.
 
-## Overview
+## Stack
 
-Single-page responsive website built with HTML, inline Tailwind CSS, and Google Fonts. No build step required — the entire site lives in one `index.html` file.
+HTML5 · Tailwind CSS (CDN with custom config) · JavaScript (inline) ·
+Fraunces + Nunito (Google Fonts)
 
-## Sections
+## Running it
 
-- **Hero** — Full-bleed photo with desktop and mobile-specific images
-- **Info Bar** — Hours, location, and phone at a glance
-- **Menu Highlights** — 6 featured dishes with a link to the full menu PDF
-- **Weekly Specials** — Happy Hour, Wine Wednesdays, Kids Half Price
-- **Gallery** — 5 interior/atmosphere photos
-- **Party Room** — Private event rental callout
-- **Catch Club** — Free dessert email signup CTA
-- **Reviews** — Google-style testimonial cards
-- **About** — Owners story and Food Network feature
-- **Footer** — Hours, address, phone, Facebook, Instagram, email
+Open `index.html` in a browser. No build step.
 
-## Restaurant Info
+## Design
 
-| | |
-|---|---|
-| **Address** | 1817 South Road (Rt. 9), Wappingers Falls, NY 12590 |
-| **Phone** | (845) 765-0234 |
-| **Email** | joewillysrestaurant@yahoo.com |
-| **Instagram** | [@joewillysseafood](https://www.instagram.com/joewillysseafood) |
-| **Hours** | Tue–Sat 4–9 PM · Sun 4–8:30 PM · Mon Closed |
+Custom Tailwind config with brand colors:
 
-## Running Locally
-
-```bash
-node serve.mjs
+```js
+navy: '#1e3d6e', 'navy-deep': '#0d1f38',
+rust: '#c44a2b', sky: '#5ab4d4',
+cream: '#f5e3bc', 'cream-lt': '#fdf8ef'
 ```
 
-Opens a static file server at `http://localhost:3000`.
+Font pairing: Fraunces (display/headings) + Nunito (body and labels).
 
-## Taking Screenshots
+The nav starts transparent and transitions to a frosted-glass pill on scroll
+(`backdrop-filter: blur(16px)` + navy tint) — handled with a `scrolled` class
+toggled via an inline scroll listener.
 
-```bash
-node screenshot.mjs http://localhost:3000 label
-```
+## Notes
 
-Screenshots are saved to `temporary screenshots/` with auto-incrementing filenames.
-
-## Brand Assets
-
-All assets live in `brand_assets/`:
-
-| File | Description |
-|---|---|
-| `joe_willys_hero.png` | Desktop hero background |
-| `mobile_hero_2.png` | Mobile hero background |
-| `joe_willys_square_logo.png` | Square logo for nav/footer |
-| `joe_willys_menu.pdf` | Full menu PDF |
-| `social_preview.jpg` | Open Graph / social share image (1200×630) |
-| `fish_skeleton.png` | Decorative watermark used throughout |
-| `Food_Network_New_Logo.png` | Food Network logo |
-| `restaurant_impossible.png` | Restaurant: Impossible logo |
-
-## Tech Stack
-
-- [Tailwind CSS](https://tailwindcss.com/) (CDN)
-- [Google Fonts](https://fonts.google.com/) — Playfair Display, Josefin Sans, Lora
-- Vanilla JS (scroll animations, mobile nav, email form)
-- Node.js static server (`serve.mjs`)
-- Puppeteer screenshot utility (`screenshot.mjs`)
+Single HTML file — all styles are either Tailwind utilities or a `<style>`
+block in the `<head>`. No external CSS or JS files.
